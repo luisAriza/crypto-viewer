@@ -1,15 +1,15 @@
 <template lang="pug">
-h1 Crypto Coin Market
-table
-  thead
-    tr
-      th Coins
-  tbody
-    tr(v-for="coin in coins", :key="coin.id")
-      td
-        img(:src="coin.image" :alt="coin.name" width="20" height="20")
-        span {{ coin.name }}
-        span {{ coin.symbol }}
+.container
+  h1 Crypto Coin Market
+  table
+    thead
+      tr: th Coins
+    tbody
+      tr(v-for="coin in coins", :key="coin.id")
+        td.coin
+          img.coin-img(:src="coin.image" :alt="coin.name" width="20" height="20")
+          span.coin-name {{ coin.name }}
+          span.coin-symbol {{ coin.symbol }}
 </template>
 
 <script lang="ts">
@@ -31,25 +31,23 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="postcss">
+.container {
+  @apply flex flex-col items-center p-12;
+}
+h1 {
+  @apply mb-6 text-5xl text-center;
+}
 table {
-  width: 100%;
-  padding: 20px;
-  text-align: left;
-  background-color: #2c2c2c;
+  @apply w-full max-w-3xl rounded-lg bg-zinc-800 pb-6;
 }
 th {
-  padding-bottom: 12px;
-  font-size: 24px;
-  /* border: 1px solid #3d3d3d; */
+  @apply p-4 text-2xl uppercase;
 }
-td {
-  display: flex;
-  align-items: center;
-  padding: 4px 8px;
-  border: 1px solid #3d3d3d;
+.coin {
+  @apply flex items-center gap-2 mx-8 p-2 border-t border-zinc-700;
 }
-img {
-  margin-right: 8px;
+.coin-symbol {
+  @apply uppercase text-zinc-600;
 }
 </style>
