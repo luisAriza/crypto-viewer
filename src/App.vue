@@ -1,31 +1,55 @@
-<script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
-<template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+<template lang="pug">
+h1 Crypto Coin Market
+table
+  thead
+    tr
+      th Coins
+  tbody
+    tr(v-for="coin in coins", :key="coin.id")
+      td
+        img(:src="coin.image" :alt="coin.name" width="20" height="20")
+        span {{ coin.name }}
+        span {{ coin.symbol }}
 </template>
 
+<script lang="ts">
+export default {
+  name: "App",
+  data(): { coins: [] } {
+    return {
+      coins: [],
+    };
+  },
+  async mounted(): Promise<void> {
+    const res = await fetch(
+      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+    );
+    const data = await res.json();
+    console.log(data);
+    this.coins = data;
+  },
+};
+</script>
+
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
+table {
+  width: 100%;
+  padding: 20px;
+  text-align: left;
+  background-color: #2c2c2c;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+th {
+  padding-bottom: 12px;
+  font-size: 24px;
+  /* border: 1px solid #3d3d3d; */
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+td {
+  display: flex;
+  align-items: center;
+  padding: 4px 8px;
+  border: 1px solid #3d3d3d;
+}
+img {
+  margin-right: 8px;
 }
 </style>
