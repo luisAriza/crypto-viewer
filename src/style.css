@@ -6,6 +6,47 @@ body {
   @apply bg-neutral-800 text-neutral-200;
   font-family: "Josefin Sans", sans-serif;
 }
-#app {
+.container {
   @apply flex flex-col items-center p-16;
+}
+h1 {
+  @apply mb-6 text-5xl text-center font-bold;
+}
+
+.searcher {
+  @apply w-full max-w-4xl;
+}
+input {
+  @apply w-full py-2 px-4 outline-none my-5 text-lg rounded-md border border-neutral-700 bg-neutral-800 placeholder:text-neutral-600 focus:bg-neutral-700;
+}
+
+.coins-table {
+  @apply w-full max-w-4xl;
+}
+table {
+  @apply w-full rounded-lg;
+}
+.title {
+  @apply py-4 text-left text-xl font-bold uppercase;
+}
+tbody tr {
+  @apply border-t border-neutral-700;
+}
+.index {
+  @apply text-neutral-600;
+}
+.coin {
+  @apply flex items-center gap-2 py-2;
+}
+.coin-name {
+  @apply text-lg font-medium;
+}
+.coin-symbol {
+  @apply uppercase text-neutral-600;
+}
+.price-upper {
+  @apply text-green-500;
+}
+.price-lower {
+  @apply text-rose-600;
 }
