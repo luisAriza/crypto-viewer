@@ -1,6 +1,6 @@
 import { createStore } from "vuex";
 
-interface Coins {
+type Coins = {
   coins: object[];
   filteredCoins: object[];
 }

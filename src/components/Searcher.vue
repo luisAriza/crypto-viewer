@@ -4,13 +4,13 @@
 </template>
 
 <script lang="ts">
-interface Search {
+type Search = {
   textSearch: string;
-}
-interface CoinItem {
+};
+type CoinItem = {
   name: string;
   symbol: string;
-}
+};
 
 export default {
   name: "Searcher",

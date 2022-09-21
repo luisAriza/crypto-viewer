@@ -19,9 +19,9 @@
 </template>
 
 <script lang="ts">
-interface Data {
+type Data = {
   titles: string[];
-}
+};
 
 export default {
   name: "CoinsTable",

@@ -1,6 +1,6 @@
 <template lang="pug">
 .container
-  h1 Crypto Coin Market
+  h1 Crypto Coin Viewer
   Searcher
   CoinsTable
 </template>
