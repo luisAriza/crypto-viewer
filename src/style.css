@@ -6,3 +6,6 @@ body {
   @apply bg-neutral-800 text-neutral-200;
   font-family: "Josefin Sans", sans-serif;
 }
+#app {
+  @apply flex flex-col items-center p-16;
+}
