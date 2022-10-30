@@ -45,8 +45,8 @@ tbody tr {
 	@apply uppercase text-neutral-600;
 }
 .price-upper {
-	@apply text-green-500;
+	@apply text-green-500 text-center;
 }
 .price-lower {
-	@apply text-rose-600;
+	@apply text-rose-600 text-center;
 }
